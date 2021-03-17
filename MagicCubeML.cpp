@@ -29,7 +29,7 @@ void MagicCube(int MagicCubeBlock[6][2][2]){
 		cout << "²Ä" << i <<"¼h" << endl;
 		for(int j = 0;j < 2;j++){
 			for(int k = 0;k < 2;k++){
-				cout << MagicCubeBlock[i][j][k];
+				cout << MagicCubeBlock[i][k][j];
 			}
 			cout << endl;
 		}
@@ -42,7 +42,8 @@ void MagicCube(int MagicCubeBlock[6][2][2]){
 		case 1:
 			ts[0] = MagicCubeBlock[3][0][1];
 			ts[1] = MagicCubeBlock[3][1][1];
-			for(int i = 3;i > 0;i++){
+
+			for(int i = 3;i > 0;i--){
 			MagicCubeBlock[i][0][1] = MagicCubeBlock[i-1][0][1];
 			MagicCubeBlock[i][1][1] = MagicCubeBlock[i-1][1][1];
 			}
@@ -74,18 +75,19 @@ void MagicCube(int MagicCubeBlock[6][2][2]){
 		case 3:
 			ts[0] = MagicCubeBlock[3][0][0];
 			ts[1] = MagicCubeBlock[3][1][0];
-			for(int i = 3;i > 0;i++){
+			for(int i = 3;i > 0;i--){
 			MagicCubeBlock[i][0][0] = MagicCubeBlock[i-1][0][0];
 			MagicCubeBlock[i][1][0] = MagicCubeBlock[i-1][1][0];
 			}
 			MagicCubeBlock[0][0][0] = ts[0];
 			MagicCubeBlock[0][1][0] = ts[1];
 
-			ts[0] = MagicCubeBlock[5][0][1];
+			ts[0] = MagicCubeBlock[4][0][1];
 			MagicCubeBlock[4][0][1] = MagicCubeBlock[4][1][1];
 			MagicCubeBlock[4][1][1] = MagicCubeBlock[4][1][0];
 			MagicCubeBlock[4][1][0] = MagicCubeBlock[4][0][0];
 			MagicCubeBlock[4][0][0] = ts[0];
+			break;
 		case 4:
 			ts[0] = MagicCubeBlock[0][0][0];
 			ts[1] = MagicCubeBlock[0][1][0];
@@ -96,11 +98,12 @@ void MagicCube(int MagicCubeBlock[6][2][2]){
 			MagicCubeBlock[3][0][0] = ts[0];
 			MagicCubeBlock[3][1][0] = ts[1];
 
-			ts[0] = MagicCubeBlock[5][0][0];
+			ts[0] = MagicCubeBlock[4][0][0];
 			MagicCubeBlock[4][0][0] = MagicCubeBlock[4][1][0];
 			MagicCubeBlock[4][1][0] = MagicCubeBlock[4][1][1];
 			MagicCubeBlock[4][1][1] = MagicCubeBlock[4][0][1];
 			MagicCubeBlock[4][0][1] = ts[0];
+			break;
 		case 5:
 			ts[0] = MagicCubeBlock[2][0][0];
 			ts[1] = MagicCubeBlock[2][0][1];
@@ -119,16 +122,16 @@ void MagicCube(int MagicCubeBlock[6][2][2]){
 			MagicCubeBlock[1][0][0] = ts[0];
 			break;
 		case 6:
-			ts[0] = MagicCubeBlock[2][0][0];
-			ts[1] = MagicCubeBlock[2][0][1];
-			MagicCubeBlock[4][1][0] = MagicCubeBlock[0][1][1];
-			MagicCubeBlock[4][1][1] = MagicCubeBlock[0][1][0];
+			ts[0] = MagicCubeBlock[5][1][1];
+			ts[1] = MagicCubeBlock[5][1][0];
+			MagicCubeBlock[5][1][0] = MagicCubeBlock[2][0][1];
+			MagicCubeBlock[5][1][1] = MagicCubeBlock[2][0][0];
 			MagicCubeBlock[2][0][0] = MagicCubeBlock[4][1][0];
 			MagicCubeBlock[2][0][1] = MagicCubeBlock[4][1][1];
-			MagicCubeBlock[2][0][0] = MagicCubeBlock[5][1][1];
-			MagicCubeBlock[2][0][1] = MagicCubeBlock[5][1][0];
-			MagicCubeBlock[4][0][0] = ts[0];
-			MagicCubeBlock[4][0][1] = ts[1];
+			MagicCubeBlock[4][1][0] = MagicCubeBlock[0][1][1];
+			MagicCubeBlock[4][1][1] = MagicCubeBlock[0][1][0];
+			MagicCubeBlock[0][1][1] = ts[0];
+			MagicCubeBlock[0][1][0] = ts[1];
 			ts[0] = MagicCubeBlock[1][1][0];
 			MagicCubeBlock[1][1][0] = MagicCubeBlock[1][1][1];
 			MagicCubeBlock[1][1][1] = MagicCubeBlock[1][0][1];
@@ -153,17 +156,17 @@ void MagicCube(int MagicCubeBlock[6][2][2]){
 			MagicCubeBlock[3][0][0] = ts[0];
 			break;
 		case 8:
-			ts[0] = MagicCubeBlock[2][1][1];
-			ts[1] = MagicCubeBlock[2][1][0];
-			MagicCubeBlock[4][0][1] = MagicCubeBlock[0][0][0];
-			MagicCubeBlock[4][0][0] = MagicCubeBlock[0][0][1];
+			ts[0] = MagicCubeBlock[5][0][0];
+			ts[1] = MagicCubeBlock[5][0][1];
+			MagicCubeBlock[5][0][1] = MagicCubeBlock[2][1][0];
+			MagicCubeBlock[5][0][0] = MagicCubeBlock[2][1][1];
 			MagicCubeBlock[2][1][1] = MagicCubeBlock[4][0][1];
 			MagicCubeBlock[2][1][0] = MagicCubeBlock[4][0][0];
-			MagicCubeBlock[2][1][1] = MagicCubeBlock[5][0][0];
-			MagicCubeBlock[2][1][0] = MagicCubeBlock[5][0][1];
-			MagicCubeBlock[4][1][1] = ts[0];
-			MagicCubeBlock[4][1][0] = ts[1];
-			ts[0] = MagicCubeBlock[1][1][0];
+			MagicCubeBlock[4][0][1] = MagicCubeBlock[0][0][0];
+			MagicCubeBlock[4][0][0] = MagicCubeBlock[0][0][1];
+			MagicCubeBlock[0][0][0] = ts[0];
+			MagicCubeBlock[0][0][1] = ts[1];
+			ts[0] = MagicCubeBlock[3][1][0];
 			MagicCubeBlock[3][1][0] = MagicCubeBlock[3][1][1];
 			MagicCubeBlock[3][1][1] = MagicCubeBlock[3][0][1];
 			MagicCubeBlock[3][0][1] = MagicCubeBlock[3][0][0];
