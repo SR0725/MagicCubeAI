@@ -27,7 +27,7 @@ void MagicCubeReset(int MagicCubeBlock[6][2][2]){
 void MagicCube(int MagicCubeBlock[6][2][2]){
 	int ts[2];
 	int action;
-	cout << "è¼¸å…¥æ•¸å€¼å·²é€²è¡Œé­”æ–¹è½‰å‹•\n1 ä¸Šå±¤å³è½‰\n2 ä¸Šå±¤å·¦è½‰\n3 ä¸‹å±¤å³è½‰\n4 ä¸‹å±¤å·¦è½‰\n5 å³å±¤ä¸Šè½‰\n6 å³å±¤ä¸‹è½‰\n7 å·¦å±¤ä¸Šè½‰\n8 å·¦å±¤ä¸‹è½‰\n9 å‰å±¤é †æ™‚é‡è½‰\n10 å‰å±¤é€†æ™‚é‡è½‰\n11 å¾Œå±¤é †æ™‚é‡è½‰\n12 å¾Œå±¤é€†æ™‚é‡è½‰\n";
+	cout << "¿é¤J¼Æ­È¤w¶i¦æÅ]¤èÂà°Ê\n1 ¤W¼h¥kÂà\n2 ¤W¼h¥ªÂà\n3 ¤U¼h¥kÂà\n4 ¤U¼h¥ªÂà\n5 ¥k¼h¤WÂà\n6 ¥k¼h¤UÂà\n7 ¥ª¼h¤WÂà\n8 ¥ª¼h¤UÂà\n9 «e¼h¶¶®É°wÂà\n10 «e¼h°f®É°wÂà\n11 «á¼h¶¶®É°wÂà\n12 «á¼h°f®É°wÂà\n";
 	cin >> action;
 	switch(action){
 		case 1:
@@ -229,7 +229,7 @@ void MagicCube(int MagicCubeBlock[6][2][2]){
 			MagicCubeBlock[1][1][0] = ts[1];
 			break;
 		default:
-			cout << "\nè«‹è¼¸å…¥æ­£ç¢ºæ•¸å€¼ï¼" << endl;
+			cout << "\n½Ð¿é¤J¥¿½T¼Æ­È¡I" << endl;
 			break;
 	}
 }
