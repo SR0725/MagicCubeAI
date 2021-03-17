@@ -25,6 +25,15 @@ void MagicCubeReset(int MagicCubeBlock[6][2][2]){
 }
 
 void MagicCube(int MagicCubeBlock[6][2][2]){
+	for(int i = 0;i < 6;i++){
+		cout << "第" << i <<"層" << endl;
+		for(int j = 0;j < 2;j++){
+			for(int k = 0;k < 2;k++){
+				cout << MagicCubeBlock[i][j][k];
+			}
+			cout << endl;
+		}
+	}
 	int ts[2];
 	int action;
 	cout << "輸入數值已進行魔方轉動\n1 上層右轉\n2 上層左轉\n3 下層右轉\n4 下層左轉\n5 右層上轉\n6 右層下轉\n7 左層上轉\n8 左層下轉\n9 前層順時針轉\n10 前層逆時針轉\n11 後層順時針轉\n12 後層逆時針轉\n";
