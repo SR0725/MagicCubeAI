@@ -46,7 +46,7 @@ public:
       cout << "\x1b[37mCommand Description:" << endl;
       cout << "\x1b[37mM\x1b[1;30m     Perform a machine learning program" << endl;
       cout << "\x1b[37mO\x1b[1;30m     Output the current AI accuracy rate" << endl;
-      cout << "\x1b[37mR\x1b[1;30m     Make Pocket Cube turns into value " << endl;
+      cout << "\x1b[37mR\x1b[1;30m     Pocket Cube value reset" << endl;
       cout << "\x1b[37mE\x1b[1;30m     Manually enter the pocket Cube value" << endl;
       cout << "\x1b[37mS\x1b[1;30m     AI solve" << endl;
       cout << "\x1b[37mr\x1b[1;30m     Random weight" << endl;
@@ -57,7 +57,7 @@ public:
     switch (CommandInput[0]) {
       case 'M':cout << "M";break;
       case 'O':cout << "O";break;
-      case 'R':cout << "R";break;
+      case 'R':pc.PocketCube();break;
       case 'E':cubeEnter();break;
       case 'S':NNBlockValueTrans();NN.Solve();break;
       case 'r':NN.wRandom();cout<<"\x1b[37mRandom weight Finish!";break;
