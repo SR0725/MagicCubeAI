@@ -5,7 +5,6 @@ using namespace std;
 #define POCKETCUBE_H
 class PocketCube{
 private:
-    char block[6][2][2];
     vector<char>color={'W','O','G','R','B','Y'};
     string get(vector<int>a){
         string ans;
@@ -62,6 +61,7 @@ private:
         }
     }
 public:
+	char block[6][2][2];
     PocketCube(){
         for(int i=0;i<6;i++){
             for(int j=0;j<2;j++){
@@ -102,16 +102,7 @@ public:
         cout<<"  "<<get({5,0,0})<<get({5,0,1})<<endl;
         cout<<"  "<<get({5,1,0})<<get({5,1,1})<<endl;
     }
-    bool isSolved(){
-        for(int i=0;i<6;i++){
-            for(int j=0;j<2;j++){
-                for(int k=0;k<2;k++){
-                    if(block[i][j][k]!=color[i])return false;
-                }
-            }
-        }
-        return false;
-    }
+
     void suffle(string cmd){
         for(int i=0;i<cmd.length();i++){
             if(cmd[i]!=' '){
@@ -128,6 +119,6 @@ public:
                 }
             }
         }
-    }//輸入轉動指令，範例： "R2 F2 R' F2 R2 U' F'"
+    }
 };
 #endif

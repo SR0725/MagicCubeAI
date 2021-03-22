@@ -9,7 +9,6 @@ using namespace std;
 
 class NeuralNetwork{
 private:
-  PocketCube pc;
   float w1[24][16]; //384
   float w2[16][12]; //192
   float w3[12][6]; //72
@@ -103,6 +102,7 @@ private:
   }
 
 public:
+  PocketCube pc;
   void wRandom()
   {
     srand(time(NULL));
@@ -156,15 +156,16 @@ public:
         b_Solve = false;
         cout << b_Solve;
       }
-      else
-      Input();
-      times += 1;
-      char CommandInput;
-      if(times >= 20){
-        cout << "The number of cracks has exceeded 20 times, Do you want to continue? (enter y or n)";
-        cin >> CommandInput;
-        if(CommandInput == 'n')
-          b_Solve = false;
+      else{
+	      Input();
+	      times += 1;
+	      char CommandInput[2];
+	      if(times >= 20){
+	        cout << "The number of cracks has exceeded 20 times, Do you want to continue? (enter y or n)";
+          cin.getline(CommandInput,2);
+	        if(CommandInput[0] == 'n')
+	          b_Solve = false;
+	      }
       }
     }
   }

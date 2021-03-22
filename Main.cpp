@@ -8,26 +8,35 @@ system("chcp 65001");
 
 class MainFunction{
 private:
-  char CommandInput;
+  PocketCube pc;
+  NeuralNetwork NN;
+  char CommandInput[2];
   void cubeEnter(){
-    PocketCube pc;
     bool b_cubeEnter = true;
     while(b_cubeEnter){
-      pc.print();
       cout<<endl;
       string c;
       while(true){
+        pc.print();
         cout<<"command:";
+        cin.clear();
         getline(cin,c);
         if(c == "exit"){
           b_cubeEnter = false;
           break;
         }
+        else
         pc.suffle(c);
-        pc.print();
      }
     }
   }
+  void NNBlockValueTrans(){
+  	for(int i = 0;i < 6;i++)
+  		for(int j = 0;j < 2;j++)
+  			for(int k = 0;k < 2;k++)
+  				NN.pc.block[i][j][k] = pc.block[i][j][k];
+  }
+
 public:
   void description(){
       cout << endl;
@@ -43,17 +52,15 @@ public:
       cout << "\x1b[37mr\x1b[1;30m     Random weight" << endl;
   }
   void inputCommand(){
-    PocketCube pc;
-    NeuralNetwork NN;
     cout << "Command:";
-    cin.get(CommandInput);
-    switch (CommandInput) {
+    cin.getline(CommandInput,2);
+    switch (CommandInput[0]) {
       case 'M':cout << "M";break;
       case 'O':cout << "O";break;
       case 'R':cout << "R";break;
       case 'E':cubeEnter();break;
-      case 'S':NN.Solve();break;
-      case 'r':NN.wRandom();break;
+      case 'S':NNBlockValueTrans();NN.Solve();break;
+      case 'r':NN.wRandom();cout<<"\x1b[37mRandom weight Finish!";break;
     }
   }
 };
