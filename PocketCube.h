@@ -102,7 +102,7 @@ public:
         cout<<"  "<<get({5,0,0})<<get({5,0,1})<<endl;
         cout<<"  "<<get({5,1,0})<<get({5,1,1})<<endl;
     }
-
+    
     void suffle(string cmd){
         for(int i=0;i<cmd.length();i++){
             if(cmd[i]!=' '){

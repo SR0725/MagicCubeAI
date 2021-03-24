@@ -21,18 +21,18 @@ private:
 
   void NNLayer2()
   {
-    for(int i = 0; i < 16; i++) //šwÁã
+    for(int i = 0; i < 16; i++) //æ­¸é›¶
     {
       Layer2[i] = 0;
     }
-    for(int i = 0; i < 24; i++) //™àÖØº¯”µ¼Ó³É
+    for(int i = 0; i < 24; i++) //æ¬Šé‡å‡½æ•¸åŠ æˆ
     {
       for(int j = 0; j < 16; j++)
       {
         Layer2[j] += (Layer1[i] * w1[i][j]);
       }
     }
-    for(int i = 0; i < 16; i++) //¼¤»îº¯”µ¼Ó³É
+    for(int i = 0; i < 16; i++) //æ¿€æ´»å‡½æ•¸åŠ æˆ
     {
       if(Layer2[i] < 0)
       {
@@ -44,18 +44,18 @@ private:
 
   void NNLayer3()
   {
-    for(int i = 0; i < 12; i++) //šwÁã
+    for(int i = 0; i < 12; i++) //æ­¸é›¶
     {
       Layer3[i] = 0;
     }
-    for(int i = 0; i < 16; i++) //™àÖØº¯”µ¼Ó³É
+    for(int i = 0; i < 16; i++) //æ¬Šé‡å‡½æ•¸åŠ æˆ
     {
       for(int j = 0; j < 12; j++)
       {
         Layer3[j] += (Layer2[i] * w2[i][j]);
       }
     }
-    for(int i = 0; i < 12; i++) //¼¤»îº¯”µ¼Ó³É
+    for(int i = 0; i < 12; i++) //æ¿€æ´»å‡½æ•¸åŠ æˆ
     {
       if(Layer3[i] < 0)
       {
@@ -67,18 +67,18 @@ private:
 
   void NNLayer4()
   {
-    for(int i = 0; i < 6; i++) //šwÁã
+    for(int i = 0; i < 6; i++) //æ­¸é›¶
     {
       Layer4[i] = 0;
     }
-    for(int i = 0; i < 12; i++) //™àÖØº¯”µ¼Ó³É
+    for(int i = 0; i < 12; i++) //æ¬Šé‡å‡½æ•¸åŠ æˆ
     {
       for(int j = 0; j < 6; j++)
       {
         Layer4[j] += (Layer3[i] * w3[i][j]);
       }
     }
-    for(int i = 0; i < 6; i++) //¼¤»îº¯”µ¼Ó³É
+    for(int i = 0; i < 6; i++) //æ¿€æ´»å‡½æ•¸åŠ æˆ
     {
       if(Layer4[i] < 0)
       {
@@ -159,11 +159,11 @@ public:
       else{
 	      Input();
 	      times += 1;
-	      char CommandInput[2];
+	      char CommandInput;
 	      if(times >= 20){
 	        cout << "The number of cracks has exceeded 20 times, Do you want to continue? (enter y or n)";
-          cin.getline(CommandInput,2);
-	        if(CommandInput[0] == 'n')
+	        cin >> CommandInput;
+	        if(CommandInput == 'n')
 	          b_Solve = false;
 	      }
       }
