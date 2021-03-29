@@ -2,9 +2,6 @@
 #include "PocketCube.h"
 #include "NeuralNetwork.h"
 #include "WeightCorrection.h"
-#ifdef _WIN64
-system("chcp 65001");
-#endif
 
 class MainFunction{
 private:
@@ -37,7 +34,17 @@ private:
   			for(int k = 0;k < 2;k++)
   				NN.pc.block[i][j][k] = pc.block[i][j][k];
   }
-  
+
+  void PocketCube(){
+      for(int i=0;i<6;i++){
+          for(int j=0;j<2;j++){
+              for(int k=0;k<2;k++){
+                  pc.block[i][j][k] = pc.color[i];
+              }
+          }
+      }
+  }
+
 public:
   void description(){
       cout << endl;
@@ -58,7 +65,7 @@ public:
     switch (CommandInput[0]) {
       case 'M':cout << "M";break;
       case 'O':cout << "O";break;
-      case 'R':cout << "R";break;
+      case 'R':PocketCube();break;
       case 'E':cubeEnter();break;
       case 'S':NNBlockValueTrans();NN.Solve();break;
       case 'r':NN.wRandom();break;

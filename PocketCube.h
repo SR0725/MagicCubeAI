@@ -5,7 +5,6 @@ using namespace std;
 #define POCKETCUBE_H
 class PocketCube{
 private:
-    vector<char>color={'W','O','G','R','B','Y'};
     string get(vector<int>a){
         string ans;
         switch(block[a[0]][a[1]][a[2]]){
@@ -61,6 +60,7 @@ private:
         }
     }
 public:
+  vector<char>color={'W','O','G','R','B','Y'};
 	char block[6][2][2];
     PocketCube(){
         for(int i=0;i<6;i++){
@@ -102,7 +102,7 @@ public:
         cout<<"  "<<get({5,0,0})<<get({5,0,1})<<endl;
         cout<<"  "<<get({5,1,0})<<get({5,1,1})<<endl;
     }
-    
+
     void suffle(string cmd){
         for(int i=0;i<cmd.length();i++){
             if(cmd[i]!=' '){
