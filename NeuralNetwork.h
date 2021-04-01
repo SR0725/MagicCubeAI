@@ -9,18 +9,10 @@ using namespace std;
 
 class NeuralNetwork{
 private:
-  float w1[24][16]; //384
-  float w2[16][12]; //192
-  float w3[12][6]; //72
   float max;
   int action;
-  float Layer1[24];
-  float Layer2[16];
-  float Layer3[12];
-  float Layer4[6];
 
-  void NNLayer2()
-  {
+  void NNLayer2(){
     for(int i = 0; i < 16; i++) //歸零
     {
       Layer2[i] = 0;
@@ -42,8 +34,7 @@ private:
     NNLayer3();
   }
 
-  void NNLayer3()
-  {
+  void NNLayer3(){
     for(int i = 0; i < 12; i++) //歸零
     {
       Layer3[i] = 0;
@@ -65,8 +56,7 @@ private:
     NNLayer4();
   }
 
-  void NNLayer4()
-  {
+  void NNLayer4(){
     for(int i = 0; i < 6; i++) //歸零
     {
       Layer4[i] = 0;
@@ -102,7 +92,15 @@ private:
   }
 
 public:
+  float w1[24][16]; //384
+  float w2[16][12]; //192
+  float w3[12][6]; //72
+  float Layer1[24];
+  float Layer2[16];
+  float Layer3[12];
+  float Layer4[6];
   PocketCube pc;
+  
   void wRandom()
   {
     srand(time(NULL));

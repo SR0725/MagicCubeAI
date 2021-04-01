@@ -35,7 +35,31 @@ private:
   				NN.pc.block[i][j][k] = pc.block[i][j][k];
   }
 
-  void PocketCube(){
+  void WCValueTrans(){
+    for(int i = 0;i < 24;i++)
+      for(int j = 0;j < 16;j++)
+        WC.NN.w1[i][j] = NN.w1[i][j];
+    for(int i = 0;i < 16;i++)
+      for(int j = 0;j < 12;j++)
+        WC.NN.w2[i][j] = NN.w2[i][j];
+    for(int i = 0;i < 12;i++)
+      for(int j = 0;j < 6;j++)
+        WC.NN.w3[i][j] = NN.w3[i][j];
+  }
+
+  void WCValueGet(){
+    for(int i = 0;i < 24;i++)
+      for(int j = 0;j < 16;j++)
+        NN.w1[i][j] = WC.NN.w1[i][j];
+    for(int i = 0;i < 16;i++)
+      for(int j = 0;j < 12;j++)
+        NN.w2[i][j] = WC.NN.w2[i][j];
+    for(int i = 0;i < 12;i++)
+      for(int j = 0;j < 6;j++)
+        NN.w3[i][j] = WC.NN.w3[i][j];
+  }
+
+  void PocketCubeReset(){
       for(int i=0;i<6;i++){
           for(int j=0;j<2;j++){
               for(int k=0;k<2;k++){
@@ -63,9 +87,9 @@ public:
     cout << "Command:";
     cin.getline(CommandInput,2);
     switch (CommandInput[0]) {
-      case 'M':cout << "M";break;
+      case 'M':WCValueTrans();WC.Main();WCValueGet();break;
       case 'O':cout << "O";break;
-      case 'R':PocketCube();break;
+      case 'R':PocketCubeReset();break;
       case 'E':cubeEnter();break;
       case 'S':NNBlockValueTrans();NN.Solve();break;
       case 'r':NN.wRandom();break;
