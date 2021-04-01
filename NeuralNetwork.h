@@ -100,7 +100,7 @@ public:
   float Layer3[12];
   float Layer4[6];
   PocketCube pc;
-  
+
   void wRandom()
   {
     srand(time(NULL));
@@ -135,7 +135,7 @@ public:
       {
         for(int k = 0; k < 2; k++)
         {
-          Layer1[(4*i)+(2*j)+k] = 0;
+          Layer1[(4*i)+(2*j)+k] = pc.block[i][j][k];
         }
       }
     }

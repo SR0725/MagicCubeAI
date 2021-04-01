@@ -1,4 +1,5 @@
 #include<iostream>
+#include <iomanip>
 #include "PocketCube.h"
 #include "NeuralNetwork.h"
 #include "WeightCorrection.h"
@@ -69,6 +70,31 @@ private:
       }
   }
 
+  void OutWeight(){
+    for(int i = 0;i < 24;i++){
+      for(int j = 0;j < 16;j++){
+        cout << "[" << i << "]" << "[" << j << "]" << fixed << setprecision(4) << NN.w1[i][j] << " ";
+      }
+      cout << endl;
+    }
+    for(int i = 0;i < 16;i++){
+      for(int j = 0;j < 12;j++){
+        cout << "[" << i << "]" << "[" << j << "]" << fixed << setprecision(4) << NN.w2[i][j] << " ";
+      }
+      cout << endl;
+    }
+    cout << endl;
+    for(int i = 0;i < 12;i++){
+      for(int j = 0;j < 6;j++){
+        cout << "[" << i << "]" << "[" << j << "]" << fixed << setprecision(4) << NN.w3[i][j] << " ";
+        if(NN.w3[i][j] > 0)
+        cout << " ";
+      }
+      cout << endl;
+    }
+    cout << endl;
+  }
+
 public:
   void description(){
       cout << endl;
@@ -88,7 +114,7 @@ public:
     cin.getline(CommandInput,2);
     switch (CommandInput[0]) {
       case 'M':WCValueTrans();WC.Main();WCValueGet();break;
-      case 'O':cout << "O";break;
+      case 'O':OutWeight();break;
       case 'R':PocketCubeReset();break;
       case 'E':cubeEnter();break;
       case 'S':NNBlockValueTrans();NN.Solve();break;
@@ -98,6 +124,7 @@ public:
 };
 
 int main(){
+  setprecision(4);
   MainFunction MainF;
   while(true){
   MainF.description();
